@@ -1,1 +1,3 @@
-/build/
+/generated/
+/.packer_cache/
+.DS_Store

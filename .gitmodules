@@ -1,0 +1,3 @@
+[submodule "cloud-init"]
+	path = cloud-init
+	url = git@github.com:kukv/br-cluster-cloud-init.git
