@@ -1,4 +1,5 @@
 /.idea/
 /generated/
 /.packer_cache/
+/.packer_plugins/
 .DS_Store

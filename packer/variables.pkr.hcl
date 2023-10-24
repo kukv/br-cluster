@@ -1,3 +1,8 @@
+variable "ubuntu_version" {
+  type = string
+  default = "23.04"
+}
+
 variable "hostname" {
     type = string
 }
