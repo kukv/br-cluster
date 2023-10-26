@@ -1,0 +1,14 @@
+---
+# playbook.yml
+- name: 'Provision Image'
+  hosts: default
+  become: true
+
+  tasks:
+    - name: apt update
+      apt:
+        update_cache: true
+    - name: install Apache2
+      package:
+        name: 'apache2'
+        state: present
