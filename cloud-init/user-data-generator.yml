@@ -1,0 +1,13 @@
+services:
+  user-data-generator:
+    image: ghcr.io/kukv/kamidata-cli:latest
+    volumes:
+      - ${PWD}/generated:/generated
+      - ${PWD}/templates:/templates
+      - ${PWD}/values:/values
+      - ${PWD}/values-secret:/values-secret
+    command: >
+      /templates/user-data.j2
+      --data /values/user-data_${MACHINE_NAME}.json
+      --data /values-secret/user-data_${MACHINE_NAME}.json
+      --dst /generated/${MACHINE_NAME}/user-data

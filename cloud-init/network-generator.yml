@@ -1,0 +1,13 @@
+services:
+  network-generator:
+    image: ghcr.io/kukv/kamidata-cli:latest
+    volumes:
+      - ${PWD}/generated:/generated
+      - ${PWD}/templates:/templates
+      - ${PWD}/values:/values
+      - ${PWD}/values-secret:/values-secret
+    command: >
+      /templates/network-config.j2
+      --data /values/network-config_${MACHINE_NAME}.json
+      --data /values-secret/network-config_${MACHINE_NAME}.json
+      --dst /generated/${MACHINE_NAME}/network-config

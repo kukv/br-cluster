@@ -1,5 +1,11 @@
+# misc
 /.idea/
-/generated/
+.DS_Store
+
+# packer
 /.packer_cache/
 /.packer_plugins/
-.DS_Store
+/generated/
+
+# cloud-init
+/cloud-init/generated/
