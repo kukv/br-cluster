@@ -1,0 +1,47 @@
+#cloud-config
+hostname: {{ hostname }}
+manage_etc_hosts: false
+
+timezone: JST
+locale: ja_JP.UTF-8
+
+ssh_pwauth: false
+disable_root: true
+
+package_update: true
+package_upgrade: true
+{%- if enable_wireless_network %}
+packages:
+- avahi-daemon
+{%- endif %}
+
+apt:
+  conf: |
+    Acquire {
+      Check-Date "false";
+    };
+
+chpasswd:
+  expire: false
+  users:
+    name: root
+    password: {{ users.root.password }}
+
+users:
+  - name: {{ users.operation_user.name }}
+    groups: users,adm,dialout,audio,netdev,video,plugdev,cdrom,games,input,gpio,spi,i2c,render,sudo
+    shell: /bin/bash
+    lock_passwd: false
+    passwd: {{ users.operation_user.password }}
+    ssh_authorized_keys:
+      - {{ users.operation_user.public_key }}
+
+{%- if enable_wireless_network %}
+runcmd:
+- sed -i 's/^s*REGDOMAIN=S*/REGDOMAIN=JP/' /etc/default/crda || true
+- localectl set-x11-keymap "us" pc105
+- setupcon -k --force || true
+
+power_state:
+  mode: reboot
+{%- endif %}

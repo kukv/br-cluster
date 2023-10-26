@@ -1,6 +1,6 @@
-[submodule "cloud-init"]
-	path = cloud-init
-	url = git@github.com:kukv/br-cluster-cloud-init.git
 [submodule "ansible"]
 	path = ansible
 	url = git@github.com:kukv/br-cluster-ansible.git
+[submodule "cloud-init/values-secret"]
+	path = cloud-init/values-secret
+	url = git@github.com:kukv/br-cloud-init-secret.git

@@ -28,4 +28,18 @@ while read -r line; do
         mkaczanowski/packer-builder-arm:latest \
             build --var-file=packer/${line}.pkrvars.hcl packer/ \
             -extra-system-packages=ansible
-done < ./server-list
+done < ./gateway-list
+
+while read -r line; do
+    echo "===================================================="
+    echo "= build image a ${line}"
+    echo "===================================================="
+    docker run \
+        --rm \
+        --privileged \
+        -v /dev:/dev \
+        -v ${PWD}:/build \
+        mkaczanowski/packer-builder-arm:latest \
+            build --var-file=packer/${line}.pkrvars.hcl packer/ \
+            -extra-system-packages=ansible
+done < ./cluster-list
