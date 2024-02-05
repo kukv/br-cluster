@@ -1,0 +1,6 @@
+[submodule "imager"]
+	path = imager
+	url = git@github.com:kukv/br-cluster-imager.git
+[submodule "ansible"]
+	path = ansible
+	url = git@github.com:kukv/br-cluster-ansible.git
