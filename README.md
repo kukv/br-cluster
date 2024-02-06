@@ -2,4 +2,4 @@
 
 ## システム構成図
 
-![システム構成図](docs/diagrams/system-configuration.svg)
+![システム構成図](docs/diagrams/system-design.svg)
