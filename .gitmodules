@@ -7,3 +7,6 @@
 [submodule "gateway"]
 	path = gateway
 	url = git@github.com:kukv/br-cluster-gateway.git
+[submodule "k8s"]
+	path = k8s
+	url = git@github.com:kukv/br-cluster-k8s.git
