@@ -10,3 +10,6 @@
 [submodule "k8s"]
 	path = k8s
 	url = git@github.com:kukv/br-cluster-k8s.git
+[submodule "external-service"]
+	path = external-service
+	url = git@github.com:kukv/br-cluster-external-service.git
